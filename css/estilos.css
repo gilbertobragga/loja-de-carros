@@ -92,7 +92,6 @@ section .content {
     justify-content: center;
     align-items: end;
     gap: 20px;
-    padding-top: 30px;
 }
 
 section .car-information {
@@ -184,9 +183,9 @@ section li {
     transition: 0.5s;
 }
 
-/* section .active {
+section ul .active {
     background-color: white;
-} */
+}
 
 /* -------------------------------------------------- */
 
@@ -213,6 +212,7 @@ section {
                     transform: translateX(200px);
                     transition: 0.7s;
                     transition-delay: 0.3s;
+                    opacity: 0;
                 }
 
                 & h2 {
@@ -244,6 +244,7 @@ section {
 
                 & .car-information, h2, .description, .information {
                     transform: translateX(0);
+                    opacity: 1;
                 }
             }
         }
