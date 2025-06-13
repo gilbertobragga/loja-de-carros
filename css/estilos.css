@@ -26,12 +26,24 @@ header {
 }
 
 header a {
-    color: white;
+    display: block;
     text-decoration: none;
+    text-align: center;
+    background-color: #FFCC00;
+    color: black;
+    text-transform: uppercase;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.849);
+}
+
+header .button3 {
+    width: 150px;
 }
 
 header a:hover {
-    color: #FFCC00;
+    background-color: rgb(207, 206, 206);
 }
 
 header img {
