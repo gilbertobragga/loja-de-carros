@@ -275,3 +275,188 @@ section {
         }
     }
 }
+
+/* Para telas muito grandes (largura maior que 1920px, como TVs) */
+@media (min-width: 1920px) {
+    header {
+        grid-template-columns: 1fr 1000px;
+        gap: 200px;
+        width: 60vw;
+    }
+
+    header img {
+        width: 600px;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(5, 300px);
+    }
+
+    section .content {
+        right: 200px;
+        width: 35%;
+    }
+
+    section h2 {
+        font-size: 9em;
+    }
+
+    section .description {
+        font-size: 1.5em;
+    }
+
+    section .information {
+        width: 180px;
+        height: 50px;
+        font-size: 2em;
+    }
+
+    section .arrows {
+        width: 50vw;
+    }
+
+    section .number {
+        font-size: 7em;
+    }
+
+    section li {
+        width: 80px;
+        height: 8px;
+    }
+}
+
+/* Para telas grandes (largura entre 1200px e 1920px, como monitores de PC) */
+@media (min-width: 1200px) {
+    header {
+        grid-template-columns: 1fr 800px;
+        gap: 150px;
+        width: 70vw;
+    }
+
+    header img {
+        width: 500px;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(4, 250px);
+    }
+
+    section .content {
+        right: 150px;
+        width: 40%;
+    }
+
+    section h2 {
+        font-size: 7.5em;
+    }
+
+    section .description {
+        font-size: 1.2em;
+    }
+
+    section .information {
+        width: 150px;
+        height: 40px;
+        font-size: 1.5em;
+    }
+
+    section .arrows {
+        width: 60vw;
+    }
+
+    section .number {
+        font-size: 6em;
+    }
+
+    section li {
+        width: 60px;
+        height: 6px;
+    }
+}
+
+/* Para telas médias (tablets, largura menor que 768px) */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 90vw;
+    }
+
+    header img {
+        width: 300px;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(2, 150px);
+    }
+
+    section .content {
+        right: 50px;
+        width: 80%;
+    }
+
+    section h2 {
+        font-size: 4.5em;
+    }
+
+    section .description {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    header img {
+        width: 200px;
+    }
+
+    nav ul {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    section .content {
+        right: 20px;
+        width: 90%;
+    }
+
+    section h2 {
+        font-size: 3em;
+    }
+
+    section .description {
+        font-size: 0.8em;
+    }
+
+    section .information {
+        width: 100px;
+        height: 30px;
+        font-size: 1em;
+    }
+
+    section .arrows {
+        width: 90vw;
+    }
+
+    section .buttonArrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    section .number {
+        font-size: 3em;
+    }
+
+    section ul {
+        gap: 5px;
+    }
+
+    section li {
+        width: 40px;
+        height: 4px;
+    }
+}
