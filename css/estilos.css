@@ -46,6 +46,15 @@ section .list {
     position: relative;
 }
 
+section .list::before {
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    border-top: 1px solid white;
+}
+
 section .item {
     position: absolute;
     inset: 0;
@@ -110,10 +119,26 @@ section .arrows {
     transform: translate(-50%, 25px);
     display: flex;
     justify-content: space-between;
+    z-index: 3;
+}
+
+section .buttonArrow {
+    top: 60%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+section .buttonArrow:hover {
+    background-color: #FFCC00;
 }
 
 section .arrows img {
-    width: 100px;
+    width: 30px;
+    margin-top: 4px;
+    cursor: pointer;
 }
 
 section .indicators {
