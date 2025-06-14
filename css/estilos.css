@@ -1,6 +1,6 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     list-style: none;
     font-family: "Poppins", sans-serif;
@@ -10,11 +10,12 @@ body {
     background-color: black;
     color: white;
     font-size: 1em;
-    overflow: hidden;
+    overflow-x: hidden; /* Alterado para previnir overflow lateral */
 }
 
 header {
     position: fixed;
+    top: 0; /* Adicionado para garantir que fique no topo */
     left: 50%;
     transform: translateX(-50%);
     display: grid;
@@ -23,6 +24,7 @@ header {
     gap: 100px;
     width: 80vw;
     z-index: 2;
+    padding-top: 20px; /* Adicionado para um respiro */
 }
 
 header a {
@@ -36,6 +38,7 @@ header a {
     height: 30px;
     border-radius: 30px;
     border: 2px solid rgba(0, 0, 0, 0.849);
+    transition: background-color 0.3s; /* Adicionado para suavizar a transição */
 }
 
 header .button3 {
@@ -55,20 +58,20 @@ nav ul {
     grid-template-columns: repeat(3, 200px);
 }
 
-section {
+section.container { /* Alterado para ser mais específico */
     background-image: radial-gradient(white, black);
     height: 100vh;
     position: relative;
 }
 
-section .list {
+section.container .list {
     width: 70vw;
     height: 100%;
     margin: auto;
     position: relative;
 }
 
-section .list::before {
+section.container .list::before {
     content: '';
     position: absolute;
     height: 200px;
@@ -77,24 +80,24 @@ section .list::before {
     border-top: 1px solid white;
 }
 
-section .item {
+section.container .item {
     position: absolute;
     inset: 0;
 }
 
-section .car-img {
+section.container .car-img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 70%;
 }
 
-section .car-img img {
+section.container .car-img img {
     width: 100%;
     transform: rotate(-30deg);
 }
 
-section .car-img::before {
+section.container .car-img::before {
     content: '';
     position: absolute;
     background-color: black;
@@ -102,11 +105,11 @@ section .car-img::before {
     height: 100px;
     top: 100%;
     left: 50px;
-    border: 50%;
+    border-radius: 50%; /* Corrigido de 'border' para 'border-radius' */
     filter: blur(50px);
 }
 
-section .content {
+section.container .content {
     position: absolute;
     right: 100px;
     width: 50%;
@@ -118,22 +121,23 @@ section .content {
     gap: 20px;
 }
 
-section .car-information {
+section.container .car-information {
     font-weight: bold;
 }
 
-section h2 {
+section.container h2 {
     font-size: 6.5em;
     line-height: 1em;
+    font-family: "League Gothic", sans-serif; /* Adicionado para consistência */
 }
 
-section .description {
+section.container .description {
     font-size: 1em;
     text-align: right;
     max-width: 400px;
 }
 
-section .information {
+section.container .information {
     background-color: #FFCC00;
     color: black;
     cursor: pointer;
@@ -146,7 +150,7 @@ section .information {
     font-size: 1.3em;
 }
 
-section .arrows {
+section.container .arrows {
     width: 70vw;
     position: absolute;
     top: 50%;
@@ -157,26 +161,26 @@ section .arrows {
     z-index: 3;
 }
 
-section .buttonArrow {
-    top: 60%;
+section.container .buttonArrow {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-section .buttonArrow:hover {
+section.container .buttonArrow:hover {
     background-color: #FFCC00;
 }
 
-section .arrows img {
+section.container .arrows img {
     width: 30px;
     margin-top: 4px;
     cursor: pointer;
 }
 
-section .indicators {
+section.container .indicators {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -189,17 +193,17 @@ section .indicators {
     gap: 15px;
 }
 
-section .number {
+section.container .number {
     font-size: 5em;
     font-family: "League Gothic", sans-serif;
 }
 
-section ul {
+section.container ul {
     display: flex;
     gap: 10px;
 }
 
-section li {
+section.container li {
     width: 50px;
     height: 5px;
     background-color: #FFCC00;
@@ -207,71 +211,202 @@ section li {
     transition: 0.5s;
 }
 
-section ul .active {
+section.container ul .active {
     background-color: white;
 }
 
+/* ANIMAÇÕES (sem alteração) */
+section.container .list {
+    --calculation: 1;
+}
+
+section.container .list .item {
+    transform: translateX(calc(100vw * var(--calculation)));
+    transition: 0.5s;
+    opacity: 0;
+}
+
+section.container .list .item .car-img img {
+    transform: rotate(0);
+    transition: 0.5s;
+    transition-delay: 0.3s;
+}
+
+section.container .list .item .content .car-information,
+section.container .list .item .content h2,
+section.container .list .item .content .description,
+section.container .list .item .content .information {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+section.container .list .item .content h2 {
+    transition-delay: 0.5s;
+}
+
+section.container .list .item .content .description {
+    transition-delay: 0.7s;
+}
+
+section.container .list .item .content .information {
+    transition-delay: 0.9s;
+}
+
+section.container .list .active {
+    transform: translateX(0);
+    transition: 0.5s;
+    opacity: 1;
+}
+
+section.container .list .active .car-img img {
+    transform: rotate(-20deg);
+}
+
+section.container .list .active .content .car-information,
+section.container .list .active .content h2,
+section.container .list .active .content .description,
+section.container .list .active .content .information {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* -------------------------------------------------- */
+/* INÍCIO DAS MEDIA QUERIES (RESPONSIVO)     */
 /* -------------------------------------------------- */
 
-section {
+/* Para Tablets e telas menores */
+@media (max-width: 1024px) {
+    header {
+        width: 90vw; /* Aumenta a largura do header */
+        gap: 50px;
+        grid-template-columns: 1fr 500px; /* Ajusta o grid */
+    }
 
-    & .list {
-    --calculation: 1;
+    header img {
+        width: 300px; /* Diminui a logo */
+    }
 
-        & .item {
-            transform: translateX(calc(100vw * var(--calculation)));
-            transition: 0.5s;
-            opacity: 0;
+    nav ul {
+        grid-template-columns: repeat(3, 1fr); /* Botões ficam flexíveis */
+        gap: 15px;
+    }
 
-            & .car-img {
-                & img {
-                    transform: rotate(0);
-                    transition: 0.5s;
-                    transition-delay: 0.3s;
-                }
-            }
+    section.container .content {
+        right: 20px; /* Aproxima o conteúdo da borda */
+    }
 
-            & .content {
+    section.container h2 {
+        font-size: 5em; /* Diminui o título principal */
+    }
 
-                & .car-information, h2, .description, .information {
-                    transform: translateX(calc(200px * var(--calculation)));
-                    transition: 0.7s;
-                    transition-delay: 0.3s;
-                    opacity: 0;
-                }
+    section.container .list {
+        width: 85vw; /* Aumenta a largura da lista */
+    }
 
-                & h2 {
-                    transition-delay: 0.5s;
-                }
+    section.container .arrows {
+        width: 85vw; /* Aumenta a largura das setas */
+    }
+}
 
-                & .description {
-                    transition-delay: 0.7s;
-                }
 
-                & .information {
-                    transition-delay: 0.9s;
-                }
-            }
-        }
+/* Para Celulares e telas pequenas - A grande mudança! */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto; /* Permite scroll vertical */
+    }
+    
+    header {
+        position: relative; /* Remove o 'fixed' para o header rolar com a página */
+        display: flex;
+        flex-direction: column; /* Empilha a logo e a navegação */
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding: 20px 0;
+    }
 
-        & .active {
-            transform: translateX(0);
-            transition: 0.5s;
-            opacity: 1;
+    nav ul {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    }
 
-            & .car-img {
-                & img {
-                    transform: rotate(-20deg);
-                }
-            }
+    header .button3 {
+        width: 160px; /* Ajusta o botão "Fale Conosco" */
+    }
 
-            & .content {
+    section.container {
+        height: auto; /* Altura automática para o conteúdo caber */
+        padding-bottom: 50px;
+    }
 
-                & .car-information, h2, .description, .information {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-        }
+    /* Esconde a linha decorativa que não faz mais sentido neste layout */
+    section.container .list::before {
+        display: none;
+    }
+
+    /* Reorganizando o item principal */
+    section.container .item {
+        position: relative; /* Tira do posicionamento absoluto */
+        display: flex;
+        flex-direction: column; /* Empilha a imagem e o conteúdo */
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        /* A animação de opacidade/transform ainda funciona no .item! */
+    }
+
+    /* Ajustes na imagem do carro */
+    section.container .car-img {
+        position: relative; /* Tira do posicionamento absoluto */
+        top: 0;
+        transform: translateY(0);
+        width: 90vw; /* Imagem ocupa quase toda a largura */
+        margin-top: 20px;
+    }
+
+    section.container .car-img img {
+        transform: rotate(-10deg); /* Menor rotação */
+    }
+
+    section.container .list .active .car-img img {
+        transform: rotate(-10deg);
+    }
+    
+    /* Ajustes no bloco de conteúdo */
+    section.container .content {
+        position: relative; /* Tira do posicionamento absoluto */
+        width: 90vw;
+        right: auto; /* Reseta a posição */
+        height: auto;
+        align-items: center; /* Centraliza tudo */
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    section.container .description {
+        text-align: center; /* Centraliza a descrição */
+        max-width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    /* Reposicionando as setas e indicadores */
+    section.container .arrows {
+        top: 40%; /* Move as setas para cima */
+        width: 95vw;
+    }
+
+    section.container .indicators {
+        position: relative; /* Posição normal no fluxo */
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 90vw;
+        margin: 40px auto 0; /* Espaçamento */
+        justify-content: center;
+        height: auto;
     }
 }
