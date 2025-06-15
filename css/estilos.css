@@ -85,44 +85,17 @@ section .item {
 section .car-img {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: auto;
-    padding-left: 100px;
+    transform: translateY(-50%);
+    width: 70%;
 }
 
 section .car-img img {
-    width: 90%;
+    width: 100%;
     height: auto;
     transform: rotate(-30deg);
 }
 
-section .fusca::before {
-    content: '';
-    position: absolute;
-    background-color: black;
-    width: 100%;
-    height: 100px;
-    top: 110%;
-    left: 50px;
-    border: 50%;
-    filter: blur(50px);
-}
-
-section .uno::before {
-    content: '';
-    position: absolute;
-    background-color: black;
-    width: 100%;
-    height: 100px;
-    top: 90%;
-    left: 50px;
-    border: 50%;
-    filter: blur(50px);
-}
-
-section .gol::before {
+section .car-img::before {
     content: '';
     position: absolute;
     background-color: black;
@@ -135,12 +108,14 @@ section .gol::before {
 }
 
 section .content {
-    width: 100%;
-    height: 160%;
+    position: absolute;
+    right: 100px;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     gap: 20px;
 }
 
@@ -149,13 +124,14 @@ section .car-information {
 }
 
 section h2 {
-    font-size: 6em;
-    line-height: 0.7em;
+    font-size: clamp(2em, 5vw, 6.5em);
+    line-height: 1em;
 }
 
 section .description {
     font-size: 1em;
-    text-align: center;
+    text-align: right;
+    max-width: 400px;
 }
 
 section .information {
@@ -286,7 +262,7 @@ section {
 
             & .car-img {
                 & img {
-                    transform: rotate(0deg);
+                    transform: rotate(-20deg);
                 }
             }
 
@@ -302,3 +278,4 @@ section {
 }
 
 /* Media Queries */
+
