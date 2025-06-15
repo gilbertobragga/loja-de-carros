@@ -91,6 +91,7 @@ section .car-img {
 
 section .car-img img {
     width: 100%;
+    height: auto;
     transform: rotate(-30deg);
 }
 
@@ -123,7 +124,7 @@ section .car-information {
 }
 
 section h2 {
-    font-size: 6.5em;
+    font-size: clamp(2em, 5vw, 6.5em);
     line-height: 1em;
 }
 
@@ -275,3 +276,6 @@ section {
         }
     }
 }
+
+/* Media Queries */
+
